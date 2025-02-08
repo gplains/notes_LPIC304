@@ -1,7 +1,5 @@
----
-title: Keepalivedの構成サンプル
----
-# Keepalivedの構成サンプル
+
+# Keepalivedの構成サンプル-2
 
 ## Keepalivedの最小ネットワーク構成
 
