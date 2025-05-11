@@ -1,16 +1,18 @@
 # Libvirt
 
-## virt-**コマンドの例
+Linux上の仮想化の管理操作における共通インタフェースもともとはXenに対応するAPIとして開発されたもの
 
-|コマンド|説明|
-|--|--|
-|virt-install |メディアから仮想マシンを作成する|
-|virt-image|XMLファイルから仮想マシンを作成する|
-|virt-clone|仮想マシンを複製する|
-|virt-viewer|仮想マシンのGUIコンソールを表示</br>※要X環境|
-|virt-manager|仮想マシンのGUI管理ツール</br>※要X環境|
+対応基盤は多岐にわたる- KVM/QEMU Xen - LXC OpenVZ Virtuozzo- Virtualbox 
 
-## virsh のサブコマンド
+libvirtdの基本アーキテクチャ- 中心: libvirtd (デーモン)- 設定: /etc/libvirtd/libvirtd.conf
+
+### libvirt の管理コマンド-1
+
+- 管理ユーティリティ virsh <サブコマンド> <引数>
+
+  https://libvirt.org/manpages/virsh.html
+
+- virsh のサブコマンド例
 |サブコマンド|説明|
 |--|--|
 |create|XMLファイルからゲストVMを作成|
@@ -21,3 +23,67 @@
 |dump|ゲストVMのコアダンプを出力|
 |net-edit|ゲストVMのネットワーク設定をXML形式で編集|
 |migrate [--live]|ゲストVMを別ホストに移行</br>--live:ライブマイグレーション|
+
+- 管理ユーティリティ virt-***virshでは煩雑になる操作をまとめたユーティリティ群
+
+- virt-**コマンドの例
+|コマンド|説明|
+|--|--|
+|virt-install |メディアから仮想マシンを作成する|
+|virt-image|XMLファイルから仮想マシンを作成する|
+|virt-clone|仮想マシンを複製する|
+|virt-viewer|仮想マシンのGUIコンソールを表示</br>※要X環境|
+|virt-manager|仮想マシンのGUI管理ツール</br>※要X環境|
+
+### libvirtのネットワーク管理
+
+- 規定でネットワークdefault(virbr0)が作成される
+
+  物理NIC - 仮想ブリッジ(virbr0) – TAP(vnet0) – 仮想NIC(eth0)
+  
+  virbr0 、 vnet0 はlibvirtd デーモンが管理する
+  
+  ホストOS:virbr0 、ゲスト側: 192.168.122.0/24(NAT)
+
+- コマンドの利用例
+  - アクティブな仮想ネットワークの表示
+  
+    virsh net-list
+  - デフォルトネットワークの起動
+  
+    virsh net-start default
+  - デフォルトネットワークの自動起動の設定
+  
+    virsh net-autostart default
+  - ネットワーク設定の編集(XML形式)
+  
+    virsh net-edit 
+
+- 別途NetworkManager経由(CentOS7/8の場合)でブリッジを作成することも可能
+
+### libvirt:KVMでの仮想マシンのライフサイクル(例)
+
+KVMでの仮想マシン起動停止は、virsh(libvirt)に依存する
+- 仮想マシンの作成
+  
+  virt-install --name domain1 … #domain1 が生成される
+- 仮想マシンの起動
+
+  virsh start domain1 [--console]
+  
+  ※ --console 付与時はコンソール接続
+- 仮想マシンへ接続 (抜けるときは、 Ctrl + ] )
+  
+  virsh console domain1 
+- 仮想マシンの停止
+  
+  virsh shutdown domain1
+  
+  ※ shutdown:シャットダウン、destroy:強制停止
+- 仮想マシンの削除
+  
+  virsh undefine domain1
+  
+  ※稼動中の場合、停止後に削除される
+
+

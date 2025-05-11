@@ -1,3 +1,23 @@
+
+### Docker/Podman のインストール
+
+
+- RHEL/Alma/Rocky
+  
+  ```
+  sudo yum install -y yum-utils
+  sudo yum-config-manager --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+  sudo yum install docker-ce docker-ce-cli containerd.io
+  sudo systemctl start docker
+  ```
+    dnf install podman # podman
+
+- Ubuntu
+
+  apt install docker  #docker
+  apt install podman podman-docker # podman
+
 ## Dockerの管理コマンド
 サブコマンド|説明|
 |--|--|
