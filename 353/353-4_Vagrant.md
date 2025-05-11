@@ -9,3 +9,7 @@
 |halt|仮想マシンの停止|
 |status|仮想マシンの状態表示|
 |destroy|仮想マシンの破棄|
+
+## 用語
+- vagrant
+- Vagrantfile

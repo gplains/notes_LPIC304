@@ -28,3 +28,10 @@
 |rm|コンテナを削除|
 |rmi|コンテナイメージを削除|
 |pull/push|DockerHubからイメージを受信/送信|
+
+## 用語
+- dockerd
+- /etc/docker/daemon.json
+- /var/lib/docker/
+- docker
+- Dockerfile
