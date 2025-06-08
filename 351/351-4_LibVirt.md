@@ -1,10 +1,18 @@
 # Libvirt
 
-Linux上の仮想化の管理操作における共通インタフェースもともとはXenに対応するAPIとして開発されたもの
+Linux上の仮想化の管理操作における共通インタフェース
 
-対応基盤は多岐にわたる- KVM/QEMU Xen - LXC OpenVZ Virtuozzo- Virtualbox 
+もともとはXenに対応するAPIとして開発されたもの
 
-libvirtdの基本アーキテクチャ- 中心: libvirtd (デーモン)- 設定: /etc/libvirtd/libvirtd.conf
+対応基盤は多岐にわたる
+- KVM/QEMU Xen 
+- LXC OpenVZ Virtuozzo
+- Virtualbox 
+
+libvirtdの基本アーキテクチャ
+
+- 中心: libvirtd (デーモン)
+- 設定: /etc/libvirtd/libvirtd.conf
 
 ### libvirt の管理コマンド-1
 
@@ -24,7 +32,9 @@ libvirtdの基本アーキテクチャ- 中心: libvirtd (デーモン)- 設�
 |net-edit|ゲストVMのネットワーク設定をXML形式で編集|
 |migrate [--live]|ゲストVMを別ホストに移行</br>--live:ライブマイグレーション|
 
-- 管理ユーティリティ virt-***virshでは煩雑になる操作をまとめたユーティリティ群
+- 管理ユーティリティ virt-***
+
+  virshでは煩雑になる操作をまとめたユーティリティ群
 
 - virt-**コマンドの例
 |コマンド|説明|
