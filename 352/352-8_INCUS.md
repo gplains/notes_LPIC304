@@ -43,11 +43,9 @@ https://incus-ja.readthedocs.io/ja/latest/installing/
 |create|コンテナ作成|
 |init|コンテナ作成|
 |launch|コンテナ作成して実行|
-|start|コンテナ起動|
-|stop|コンテナ停止|
+|start/stop|コンテナ起動/停止|
 |delete/rm|コンテナ削除|
-|exec|コンテナでコマンドを実行|
-|~| exec <container> -- bash でシェル起動、の替り|
+|exec|コンテナでコマンドを実行</br> exec <container> -- bash でシェル起動、の替り|
 |console|コンテナにログイン(事前にVMでアカウントを作ること)|
 |list(ls)|コンテナの情報表示|
 |info|コンテナの詳細情報表示|
