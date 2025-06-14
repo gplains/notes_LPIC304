@@ -1,3 +1,12 @@
+## Docker
+- 出題数:9
+- Dockerのアーキテクチャとコンポーネントを理解している。
+- Dockerレジストリからイメージを利用して、Dockerコンテナを管理することができる。
+- Dockerコンテナのイメージとボリュームを理解し管理する
+- Dockerコンテナのログ取得を理解し管理する。
+- Dockerのネットワーク機能を理解し管理する。
+- コンテナイメージを作成するために、Dockerfileを利用することができる。
+- レジストリDockerイメージを利用して、Dockerレジストリを実行する。
 
 ### Docker/Podman のインストール
 
@@ -18,7 +27,7 @@
   apt install docker  #docker
   apt install podman podman-docker # podman
 
-## Dockerの管理コマンド
+### Dockerの管理コマンド
 サブコマンド|説明|
 |--|--|
 |build|イメージ作成|
@@ -29,7 +38,7 @@
 |rmi|コンテナイメージを削除|
 |pull/push|DockerHubからイメージを受信/送信|
 
-## 用語
+### 用語
 - dockerd
 - /etc/docker/daemon.json
 - /var/lib/docker/
