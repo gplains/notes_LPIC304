@@ -23,6 +23,7 @@ libvirtdの基本アーキテクチャ
   https://libvirt.org/manpages/virsh.html
 
 - virsh のサブコマンド例
+
 |サブコマンド|説明|
 |--|--|
 |create|XMLファイルからゲストVMを作成|
@@ -39,6 +40,7 @@ libvirtdの基本アーキテクチャ
   virshでは煩雑になる操作をまとめたユーティリティ群
 
 - virt-**コマンドの例
+
 |コマンド|説明|
 |--|--|
 |virt-install |メディアから仮想マシンを作成する|
